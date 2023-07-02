@@ -11,17 +11,24 @@ function checkEvenOrOdd() {
     let numberInput = document.getElementById("numberInput");
     let result = document.getElementById("result");
 
-    // Get the input value and convert it to an integer
-    let number = parseInt(numberInput.value);
+    let numberStr = numberInput.value;
 
-    if (number % 2 === 0) {
-        result.innerHTML = "The number is even.";
+    // Check if the entered value is a decimal
+    if (numberStr.includes(".")) {
+        result.innerHTML = "Decimal values cannot be even or odd.";
     } else {
-        result.innerHTML = "The number is odd.";
+        // Get the input value and convert it to an integer
+        let number = +numberStr;
+
+        if (number % 2 === 0) {
+            result.innerHTML = number + " is an even number.";
+        } else {
+            result.innerHTML = number + " is an odd number.";
+        }
     }
 }
 
-// Clearing the input and output 
+// Clearing the input and output
 function clearInput() {
     let numberInput = document.getElementById("numberInput");
     let result = document.getElementById("result");
@@ -29,5 +36,3 @@ function clearInput() {
     numberInput.value = "";
     result.innerHTML = "";
 }
-
-  
